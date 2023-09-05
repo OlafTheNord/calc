@@ -1,8 +1,11 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IllegalStateException {
-        // Переменные для уравнения
+    public static void main(String[] args) throws IllegalStateException{
+        System.out.println(calc());
+    }
+    public static String calc (){
+        String result;
         char arifSym;
         int number1;
         int number2;
@@ -14,7 +17,7 @@ public class Main {
         String expression = exInput.nextLine();
 
         // Разбиваем на элементы по пробелу
-        String[] elements = expression.split(" ");
+        String [] elements = expression.split(" ");
 
         // Преобразуем текст в операнд
         arifSym = strToChar(elements[1]);
@@ -25,16 +28,16 @@ public class Main {
         if (number1 > 0 && number2 > 0){
             result1 = calculate(number1, number2, arifSym);
             String romeRes = numToRome(result1);
-            System.out.println("Result = " + romeRes);
+            result = "Result = " + romeRes;
         } else {
             number1 = araToNum(elements[0]);
             number2 = araToNum(elements[2]);
             result1 = calculate(number1, number2, arifSym);
-            System.out.println("Result = " + result1);
+            result = "Result = " + result1;
         }
 
+        return result;
     }
-
     private static int romToNumber(String roman){
         // Конвертер в римские цифры
         switch (roman){
@@ -76,10 +79,10 @@ public class Main {
     private static int araToNum(String arabic){
         // Число в строку
         int number;
-            number = Integer.parseInt(arabic);
-            if (number < 1 || number > 10){
-                throw new IllegalStateException("Ошибка ввода данных");
-            }
+        number = Integer.parseInt(arabic);
+        if (number < 1 || number > 10){
+            throw new IllegalStateException("Ошибка ввода данных");
+        }
         return number;
     }
     private static int calculate(int num1, int num2, char exp){
@@ -115,7 +118,7 @@ public class Main {
                 "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
                 "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"};
         try {
-        res = roman[num - 1];
+            res = roman[num - 1];
         } catch (Exception e) {
             throw new RuntimeException("Ошибка ввода данных");
         }
@@ -134,4 +137,3 @@ public class Main {
         return arif;
     }
 }
-
