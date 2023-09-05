@@ -12,7 +12,7 @@ public class Main {
         Scanner exInput = new Scanner(System.in);
         System.out.println("Input expression: ");
         String expression = exInput.nextLine();
-        
+
         // Разбиваем на элементы по пробелу
         String[] elements = expression.split(" ");
 
