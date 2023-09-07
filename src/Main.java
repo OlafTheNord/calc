@@ -38,7 +38,7 @@ public class Main {
 
         return result;
     }
-    private static int romToNumber(String roman){
+    static int romToNumber(String roman){
         // Конвертер в римские цифры
         switch (roman){
             case "I" -> {
@@ -76,7 +76,7 @@ public class Main {
             }
         }
     }
-    private static int araToNum(String arabic){
+    static int araToNum(String arabic){
         // Число в строку
         int number;
         number = Integer.parseInt(arabic);
@@ -85,7 +85,7 @@ public class Main {
         }
         return number;
     }
-    private static int calculate(int num1, int num2, char exp){
+    static int calculate(int num1, int num2, char exp){
         // Калькулятор
         int result = 0;
         switch (exp){
@@ -108,7 +108,7 @@ public class Main {
         }
         return result;
     }
-    private static String numToRome(int num){
+    static String numToRome(int num){
         String res;
         String [] roman = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
                 "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
@@ -124,7 +124,7 @@ public class Main {
         }
         return res;
     }
-    private static char strToChar(String charset){
+    static char strToChar(String charset){
         // Проверяем что за действие
         char arif;
         switch (charset) {
