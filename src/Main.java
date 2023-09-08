@@ -2,27 +2,30 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IllegalStateException{
-        System.out.println(calc());
+
+        // Получаем выражение
+        Scanner exInput = new Scanner(System.in);
+        System.out.println("Input expression: ");
+        System.out.println(calc(exInput.nextLine()));
     }
-    public static String calc (){
+    public static String calc (String input){
         String result;
         char arifSym;
         int number1;
         int number2;
         int result1;
 
-        // Получаем выражение
-        Scanner exInput = new Scanner(System.in);
-        System.out.println("Input expression: ");
-        String expression = exInput.nextLine();
+        // Разбиваем на элементы по пробелу и проверяем длину выражения
+        String [] elements = input.split(" ");
 
-        // Разбиваем на элементы по пробелу
-        String [] elements = expression.split(" ");
+        if (elements.length > 3){
+            throw new RuntimeException("Ошибка ввода");
+        }
 
-        // Преобразуем текст в операнд
+        // Преобразуем текст в арифметический символ
         arifSym = strToChar(elements[1]);
 
-        // Преобразуем римские в арабские
+        // преобразование и расчет
         number1 = romToNumber(elements[0]);
         number2 = romToNumber(elements[2]);
         if (number1 > 0 && number2 > 0){
@@ -138,4 +141,4 @@ public class Main {
     }
 }
 
-// внес корректировки после отправки из-за проверки на ошибки повторно
+// внес корректировки после проверки ментором
